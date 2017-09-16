@@ -50,4 +50,3 @@ if [ ! -f /is-baking ]; then
 
   exit 1  # Supervisord will restart.
 fi
-

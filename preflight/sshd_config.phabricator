@@ -21,4 +21,3 @@ AuthorizedKeysFile none
 UseDNS no
 
 PidFile /run/sshd-phabricator.pid
-

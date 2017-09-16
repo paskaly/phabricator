@@ -14,7 +14,7 @@
 # Where /my-script contains:
 #
 # #!/bin/bash
-# 
+#
 # set -e
 # set -x
 #
