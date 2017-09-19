@@ -1,15 +1,36 @@
 # FROM hachque/systemd-none
-
 # Latest LTS
 FROM ubuntu:latest
 
 EXPOSE 80 443 22 24
 
-#
-# Occorre decidere se lasciare questa impostazione o trasferire qui una serie
-# di comandi autonomi ...
-#
+FROM ubuntu:latest
+
+EXPOSE 80 443 22 24
+
+RUN apt-get update && \
+DEBIAN_FRONTEND=noninteractive apt-get install -y software-properties-common \
+   nginx php \
+   php-fpm php-mbstring php-mcrypt php-mysql php-cli php-ldap \
+   php-gd php-dev php-curl php-json \
+   php-fileinfo php-posix php-iconv php-ctype php-zip php-sockets php-xmlwriter \
+   php-apcu php-opcache \
+   python-pygments \
+   supervisor \
+   git mercurial subversion \
+   postfix \
+   curl ssh sudo wget less zip cron lsof npm imagemagick \
+   mariadb-client && \
+   apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
+    apt-get install -y nodejs && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN npm install ws
+
 COPY baseline /baseline
+RUN cat /baseline/setup.sh
 RUN /baseline/setup.sh
 
 COPY preflight /preflight
