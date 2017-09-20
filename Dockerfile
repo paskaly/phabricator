@@ -24,10 +24,10 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y software-properties-common \
    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
-    apt-get install -y nodejs && \
+    apt-get install -y nodejs procps && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN npm install ws
+# RUN npm install ws [P Trasferito in run-aphlict.sh]
 
 COPY baseline /baseline
 RUN cat /baseline/setup.sh

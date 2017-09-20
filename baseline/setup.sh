@@ -44,4 +44,8 @@ git clone https://github.com/letsencrypt/letsencrypt /srv/letsencrypt
 cd /srv/letsencrypt
 ./letsencrypt-auto-source/letsencrypt-auto --help
 
+#
+# Ho come l'impressione che qui si potrebbe fare:
+# apt-get -y autoremove
+
 cd /

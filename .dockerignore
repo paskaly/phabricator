@@ -1,0 +1,5 @@
+#Ignoring
+data/*
+extensions/*
+files/*
+repository/*
