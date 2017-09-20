@@ -20,12 +20,13 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y software-properties-common \
    git mercurial subversion \
    postfix \
    curl ssh sudo wget less zip cron lsof npm imagemagick \
-   mariadb-client && \
-   apt-get clean && rm -rf /var/lib/apt/lists/*
+   mariadb-client
 
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
     apt-get install -y nodejs procps && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get autoremove -y
 
 # RUN npm install ws [P Trasferito in run-aphlict.sh]
 
@@ -33,6 +34,10 @@ COPY baseline /baseline
 RUN cat /baseline/setup.sh
 RUN /baseline/setup.sh
 
+RUN mkdir /run/watch
+RUN chmod 777 /run/watch
+
 COPY preflight /preflight
+RUN cp /usr/sbin/php-fpm7.0 /usr/sbin/php-fpm
 RUN /preflight/setup.sh
 CMD ["/bin/bash", "/app/init.sh"]

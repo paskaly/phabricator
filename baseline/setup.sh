@@ -20,6 +20,9 @@ echo "nginx:!:495:" >> /etc/group
 echo "PHABRICATOR:x:2000:2000:user for phabricator:/srv/phabricator:/bin/bash" >> /etc/passwd
 echo "wwwgrp-phabricator:!:2000:nginx" >> /etc/group
 
+# Per evitare l'errore su /root/.config/git/attributes
+# chmod -R 766 /root/.config
+
 # Set up the Phabricator code base
 mkdir /srv/phabricator
 chown PHABRICATOR:wwwgrp-phabricator /srv/phabricator
@@ -47,5 +50,9 @@ cd /srv/letsencrypt
 #
 # Ho come l'impressione che qui si potrebbe fare:
 # apt-get -y autoremove
+
+# Tratto da https://secure.phabricator.com/book/phabricator/article/notifications/
+cd /srv/phabricator/phabricator/support/aphlict/server/
+npm install ws
 
 cd /
