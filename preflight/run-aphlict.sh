@@ -17,7 +17,6 @@ if [ ! -f /baked ]; then
   chown -R "$PHABRICATOR_VCS_USER:wwwgrp-phabricator" /srv/phabricator/phabricator/support/aphlict/server/node_modules
 
 
-
   # Configure the Phabricator notification server
   cat >/srv/aphlict.conf <<EOF
 {

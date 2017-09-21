@@ -7,7 +7,7 @@ if [ "$SSL_TYPE" == "letsencrypt" ]; then
   if [ ! -f /is-baking ]; then
     # If the /config directory doesn't exist, abort
     if [ ! -d /config ]; then
-      echo "You must volume mount /config in Docker to a permanent location for   Let's Encrypt to work."
+      echo "You must volume mount /config in Docker to a permanent location for Let's Encrypt to work."
       exit 1
     fi
 
