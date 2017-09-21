@@ -1,4 +1,4 @@
-# Phabricator
+# Phabricator [==WORK IN PROGRESS==]
 
 This is a Docker image which provides a fully configured Phabricator image, including SSH connectivity to repositories, real-time notifications via Web Sockets and all of the other parts that are normally difficult to configure done for you.
 
