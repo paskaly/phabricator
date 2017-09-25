@@ -1,5 +1,7 @@
 data/*
+dataconf/*
 files/*
 repository/*
 extensions/*
 config/*
+srv/*
