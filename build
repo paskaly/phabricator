@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build --force-rm -t p .
+docker build --force-rm -t phabry .

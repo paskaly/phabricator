@@ -15,15 +15,15 @@ services:
       # MYSQL_ROOT_HOST: 172.19.0.3
     volumes:
       - type: bind
-        source: ~/docker/phabricator/phabricator/data
+        source: ~/docker/phabry/data
         target: /var/lib/mysql
+      - type: bind
+        source: ~/docker/phabry/dataconf
+        target: /etc/mysql/conf.d
 
   phabricator:
-    # images was: redpointgames/phabricator. Modificato dopo il commit
-    # image: redpointgames/phabricator
-    image: p
-    # image: paskaly/phabricatory
-    container_name: pha
+    image: phabry
+    container_name: phabry
     links:
       - mysql
     depends_on:
@@ -38,21 +38,25 @@ services:
       # MYSQL_LINKED_CONTAINER: mysql
       MYSQL_USER: root
       MYSQL_PASS: pasquale
-      PHABRICATOR_HOST: pasquale.com
+      PHABRICATOR_HOST: f.sublogica.com
       PHABRICATOR_REPOSITORY_PATH: /repos
       PHABRICATOR_STORAGE_TYPE: disk
       PHABRICATOR_STORAGE_PATH: /files
 
     volumes:
       - type: bind
-        source: ~/docker/phabricator/phabricator/repository
+        source: ~/docker/phabry/repository
         target: /repos
       - type: bind
-        source: ~/docker/phabricator/phabricator/files
+        source: ~/docker/phabry/files
         target: /files
       - type: bind
-        source: ~/docker/phabricator/phabricator/extensions
+        source: ~/docker/phabry/extensions
         target: /srv/phabricator/phabricator/src/extensions
       - type: bind
-        source: ~/docker/phabricator/config
+        source: ~/docker/phabry/config
         target: /config
+      - type: bind
+        source: ~/docker/phabry/srv
+        target: /srv
+
