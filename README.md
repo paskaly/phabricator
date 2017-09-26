@@ -1,5 +1,15 @@
 # Phabricator [==WORK IN PROGRESS==]
 
+This is a Docker image derived from `redpointgames/phabricator`. The main differences are:
+1. `paskaly/phabricator` is based on Ubuntu 16.04 Xenial;
+2. Use `PHP 7.1`;
+3. The `Sprint` application is already installed and activated;
+4. The configuration parameters are fully compatible with the forked project image;
+5. Allows restarting of services `nginx` and `php-fpm` using `supervisorctl` command, which is very useful for the people who are concerned to make modifications on the source code;
+Other changes refers to the building method: many of image building steps are moved from /baseline/setup.sh file to the `Dockerfile`;
+
+
+# == Following Original README.md ==
 This is a Docker image which provides a fully configured Phabricator image, including SSH connectivity to repositories, real-time notifications via Web Sockets and all of the other parts that are normally difficult to configure done for you.
 
 You'll need an instance of MySQL for this Docker image to connect to, and for basic setups you can specify it with either the `MYSQL_LINKED_CONTAINER` or `MYSQL_HOST` environment variables, depending on where your instance of MySQL is.

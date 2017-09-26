@@ -5,3 +5,7 @@ repository/*
 extensions/*
 config/*
 srv/*
+test-ubuntu/*
+start.sh
+shell.sh
+stop.sh
